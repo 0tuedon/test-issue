@@ -1,5 +1,6 @@
 import React from 'react';
 import Clock from '../assets/svgs/clock.svg';
+
 const ProgressFooter = ({ data }) => {
   const date = new Date(data?.date).toLocaleDateString('en-uk', {
     year: 'numeric',
@@ -13,16 +14,16 @@ const ProgressFooter = ({ data }) => {
       <div
         className={`
         bg-[#FFC0C0] px-[10px] 
-        ${data.tag.includes('Minor') && 'bg-[#C0F7FF]'}
-            ${data.tag.includes('Moderate') && ''}
-            ${data.tag.includes('Urgent') && 'bg-[#FFC0C0]'}
+        ${data.tag === 'Minor' && 'bg-[#C0F7FF]'}
+            ${data.tag === 'Moderate' && ''}
+            ${data.tag === 'Urgent' && 'bg-[#FFC0C0]'}
         py-[5px] rounded-[5px]`}
       >
         <p
           className={`
-            ${data.tag.includes('Minor') && 'text-[#308D9A]'}
-            ${data.tag.includes('Moderate') && ''}
-            ${data.tag.includes('Urgent') && 'text-[#FF0000]'}
+            ${data.tag === 'Minor' && 'text-[#308D9A]'}
+            ${data.tag === 'Moderate' && ''}
+            ${data.tag === 'Urgent' && 'text-[#FF0000]'}
             text-[#FF0000]`}
         >
           {data?.tag}

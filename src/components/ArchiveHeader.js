@@ -20,8 +20,8 @@ const ArchiveHeader = ({ data }) => {
           {/* progress status */}
           <div
             className={`
-       ${data?.status.includes('Resolved') && 'bg-[#C0FFC7]'}
-       ${data?.status.includes('Progress') && 'bg-[#FBF8B2]'}
+       ${data?.status === 'Resolved' && 'bg-[#C0FFC7]'}
+       ${data?.status === 'In Progress' && 'bg-[#FBF8B2]'}
         px-[6px]
         py-[5px]
         rounded-[5px]
@@ -29,13 +29,8 @@ const ArchiveHeader = ({ data }) => {
           >
             <p
               className={`
-                          ${
-                            data?.status.includes('Resolved') && 'text-resolved'
-                          }
-                          ${
-                            data?.status.includes('Progress') &&
-                            'text-[#FFA800]'
-                          }
+                          ${data?.status === 'Resolved' && 'text-resolved'}
+                          ${data?.status === 'In Progress' && 'text-[#FFA800]'}
                         `}
             >
               {data?.status}

@@ -1,22 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useRecoilValue } from 'recoil';
 
 import ArchiveCard from './ArchiveCard';
+import { archiveTicketState } from '../atoms/ticketState';
 
 const NewModalArchive = ({ active, setActive }) => {
-  // getting all archive
-  const ArchiveData = localStorage.getItem('archive-deleted');
-  let deletedData;
-  if (ArchiveData) {
-    deletedData = JSON.parse(ArchiveData);
-    if (Array.isArray(deletedData)) {
-      deletedData = [...deletedData];
-    } else {
-      deletedData = [deletedData];
-    }
-  } else {
-    deletedData = [];
-  }
+  const archiveTickets = useRecoilValue(archiveTicketState);
+
   return (
     // Modal
     <div
@@ -51,7 +42,7 @@ const NewModalArchive = ({ active, setActive }) => {
           </p>
         </div>
         <div className="flex flex-col gap-y-[15px] px-[20px]">
-          {deletedData.map((data) => (
+          {archiveTickets.length > 0 &&archiveTickets.map((data) => (
             <ArchiveCard key={data.id} data={data} />
           ))}
         </div>

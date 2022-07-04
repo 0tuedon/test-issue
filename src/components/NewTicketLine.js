@@ -9,6 +9,7 @@ const NewTicketLine = () => {
   // state to manage the modal
   const [active, setActive] = useState(false);
   const [archive, setArchive] = useState(false);
+
   return (
     <div
       className="flex 
@@ -23,19 +24,12 @@ const NewTicketLine = () => {
         <Search />
       </div>
       {/* New Ticket Button */}
-      <div
-        className="flex gap-x-[15px] 
-        
-        "
-      >
+      <div className="flex gap-x-[15px]">
         <button
           onClick={() => {
             setArchive(true);
           }}
-          className="text-enterRed
-            font-semibold
-
-            "
+          className="text-enterRed font-semibold"
         >
           Deleted Tickets
         </button>
@@ -43,9 +37,6 @@ const NewTicketLine = () => {
           click={() => {
             setActive(true);
           }}
-          styles={`
-            
-            `}
         >
           <img src={Add} alt={'Plus Icon'} />
           New Ticket

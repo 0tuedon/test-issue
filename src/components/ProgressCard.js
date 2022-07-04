@@ -1,17 +1,17 @@
 import { Draggable } from 'react-beautiful-dnd';
+
 import ProgressBody from './ProgressBody';
 import ProgressFooter from './ProgressFooter';
 import ProgressHeader from './ProgressHeader';
 
 const ProgressCard = ({ data }) => {
-  console.log(data, 'test');
   return (
-    <Draggable draggableId={data.id} index={data.id} key={data?.id}>
-      {(provided, snapshot) => {
+    <Draggable draggableId={data.id} index={data.id}>
+      {(provided) => {
+        // console.log('provided: Draggable', provided);
         return (
           <div
             ref={provided.innerRef}
-            snapshot={snapshot}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             className="

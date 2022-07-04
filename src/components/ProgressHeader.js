@@ -10,18 +10,12 @@ const ProgressHeader = ({ data }) => {
       <div className="flex justify-between">
         {/* Card header including title and status */}
         <div className="flex gap-x-[15px]">
-          <h4
-            className="text-[20px] font-semibold
-        "
-          >
-            {' '}
-            {data?.title || ''}
-          </h4>
+          <h4 className="text-[20px] font-semibold">{data?.title || ''}</h4>
           {/* progress status */}
           <div
             className={`
                     ${data?.status === 'Resolved' && 'bg-[#C0FFC7]'}
-                    ${data?.status === 'Progress' && 'bg-[#FBF8B2]'}
+                    ${data?.status === 'In Progress' && 'bg-[#FBF8B2]'}
         
         px-[6px]
         py-[5px]
@@ -31,7 +25,7 @@ const ProgressHeader = ({ data }) => {
             <p
               className={`
         ${data?.status === 'Resolved' && 'text-resolved'}
-        ${data?.status === 'Progress' && 'text-[#FFA800]'}`}
+        ${data?.status === 'In Progress' && 'text-[#FFA800]'}`}
             >
               {data?.status}
             </p>
@@ -52,9 +46,7 @@ const ProgressHeader = ({ data }) => {
         </div>
       </div>
       {/* Menu Modal */}
-      {active && (
-        <Menu data={data} setActive={setMenuActive} idNumber={data?.id} />
-      )}
+      {active && <Menu setActive={setMenuActive} idNumber={data?.id} />}
     </>
   );
 };
